@@ -1,15 +1,30 @@
 .wrap-recommend {
   min-width: 100%;
-  min-height: 20rem;
   display: flex;
   flex-direction: column;
   margin-bottom: 0.3rem;
+  padding-bottom: 0.3rem;
+  border-bottom: black solid 0.08rem;
 }
 
 .recommend-title {
   text-align: left;
   font-size: 1.5rem;
+  margin-bottom: 0.3rem;
+  padding-bottom: 0.3rem;
+  border-bottom: black solid 0.08rem;
 }
 
 .recommend-slider {
+  display: flex;
+  flex-direction: row;
+}
+
+.wrap-recommend-item {
+  display: flex;
+  flex-direction: row;
+}
+
+.recommend-item-poster {
+  max-width: 50%;
 }
