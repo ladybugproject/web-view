@@ -1,9 +1,23 @@
 import React from "react";
 import "./recommend.css";
-import dummy_img from "../img/sample3.jpg";
 
 class Recommend extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { concert: [] };
+  }
+  componentDidMount() {
+    fetch("http://54.180.119.173:3000/test")
+      .then(res => {
+        return res.json();
+      })
+      .then(data => {
+        this.setState({ concert: data });
+      });
+  }
   render() {
+    const { concert } = this.state;
+    if (concert.length === 0) return <div></div>;
     return (
       <div className="wrap-recommend">
         <div className="recommend-title">어머! 이건 꼭 봐야해!</div>
@@ -11,15 +25,18 @@ class Recommend extends React.Component {
           <div className="wrap-recommend-item">
             <img
               className="recommend-item-poster"
-              src={dummy_img}
+              src={concert[1].POSTER}
               alt="sample"
             />
             <div className="recommend-item-info">
-              <div className="recommend-item-title">작업의 정석</div>
-              <div className="recommend-item-content">줄거리</div>
-              <div className="recommend-item-location">장소</div>
-              <div className="recommend-item-date">날짜</div>
-              <div className="recommend-item-actor">출연진</div>
+              <div className="recommend-item-title">{concert[1].PRFNM}</div>
+              <div className="recommend-item-location">
+                {concert[1].FCLTYNM}
+              </div>
+              <div className="recommend-item-date">
+                {concert[1].PRFPDFROM} ~ {concert[1].PRFPDTO}
+              </div>
+              <div className="recommend-item-actor">{concert[1].PRFCAST}</div>
             </div>
           </div>
         </div>
