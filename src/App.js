@@ -1,12 +1,11 @@
 import React from "react";
 import "./App.css";
+import Navigator from "./navigator/Navigator";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <p>Lady Bug Project</p>
-      </header>
+      <Navigator />
     </div>
   );
 }
