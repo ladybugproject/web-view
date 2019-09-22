@@ -1,0 +1,41 @@
+.navigator {
+  min-width: 100%;
+}
+
+.navigator-menu-icon {
+  width: 10%;
+  height: 100%;
+  margin-left: 0.3rem;
+}
+
+.navigator-logo-icon {
+  height: 100%;
+}
+
+.navigator-setting-icon {
+  width: 10%;
+  height: 100%;
+  margin-right: 0.3rem;
+}
+
+.navigator-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+}
+
+.navigator-home-button {
+  width: 5rem;
+  height: 1.5rem;
+  background-color: darkgrey;
+  padding: 0.3rem;
+}
+
+.navigator-detail-search-button {
+  width: 5rem;
+  height: 1.5rem;
+  background-color: darkgrey;
+  padding: 0.3rem;
+}
