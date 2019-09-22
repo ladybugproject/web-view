@@ -1,5 +1,8 @@
 .navigator {
   min-width: 100%;
+  margin-bottom: 0.3rem;
+  padding-bottom: 0.3rem;
+  border-bottom: black solid 0.08rem;
 }
 
 .navigator-menu-icon {
