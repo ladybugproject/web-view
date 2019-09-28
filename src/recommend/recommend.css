@@ -18,11 +18,13 @@
 .recommend-slider {
   display: flex;
   flex-direction: row;
+  overflow: hidden
 }
 
 .wrap-recommend-item {
   display: flex;
   flex-direction: row;
+  min-width: 100%;
 }
 
 .recommend-item-poster {
