@@ -18,6 +18,12 @@ class Recommend extends React.Component {
   render() {
     const { concert } = this.state;
     if (concert.length === 0) return <div></div>;
+    const url = concert[1].POSTER;
+    const title = concert[1].PRFNM
+    const location = concert[1].FCLTYNM;
+    const dateStart = concert[1].PRFPDFROM;
+    const dateFinish = concert[1].PRFPDTO;
+    const actor = concert[1].PRFCAST;
     return (
       <div className="wrap-recommend">
         <div className="recommend-title">어머! 이건 꼭 봐야해!</div>
@@ -25,18 +31,18 @@ class Recommend extends React.Component {
           <div className="wrap-recommend-item">
             <img
               className="recommend-item-poster"
-              src={concert[1].POSTER}
+              src={url}
               alt="sample"
             />
             <div className="recommend-item-info">
-              <div className="recommend-item-title">{concert[1].PRFNM}</div>
+              <div className="recommend-item-title">{title}</div>
               <div className="recommend-item-location">
-                {concert[1].FCLTYNM}
+                {location}
               </div>
               <div className="recommend-item-date">
-                {concert[1].PRFPDFROM} ~ {concert[1].PRFPDTO}
+                {dateStart} ~ {dateFinish}
               </div>
-              <div className="recommend-item-actor">{concert[1].PRFCAST}</div>
+              <div className="recommend-item-actor">{actor}</div>
             </div>
           </div>
         </div>
