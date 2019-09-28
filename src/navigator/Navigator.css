@@ -32,13 +32,31 @@
 .navigator-home-button {
   width: 5rem;
   height: 1.5rem;
-  background-color: darkgrey;
+  background-color: rgb(236, 109, 109);
   padding: 0.3rem;
+  border: 0.2rem;
+  border-style: solid;
+  border-color: rgb(230, 129, 129);
+  border-radius: 0.3rem;
+}
+
+.navigator-home-button:active {
+  background-color: rgb(212, 87, 87);
+  border-color: rgb(212, 87, 87);
 }
 
 .navigator-detail-search-button {
   width: 5rem;
   height: 1.5rem;
-  background-color: darkgrey;
+  background-color: rgb(236, 109, 109);
   padding: 0.3rem;
+  border: 0.2rem;
+  border-style: solid;
+  border-color: rgb(230, 129, 129);
+  border-radius: 0.3rem;
+}
+
+.navigator-detail-search-button:active {
+  background-color: rgb(212, 87, 87);
+  border-color: rgb(212, 87, 87);
 }
