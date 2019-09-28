@@ -18,15 +18,20 @@
 .recommend-slider {
   display: flex;
   flex-direction: row;
-  overflow: hidden
+  overflow: scroll;
 }
 
+
 .wrap-recommend-item {
-  display: flex;
+  display: inline-flex;
   flex-direction: row;
   min-width: 100%;
 }
 
 .recommend-item-poster {
   max-width: 50%;
+}
+
+.animate {
+  transition: all .5s ease-out;
 }

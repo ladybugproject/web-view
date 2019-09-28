@@ -1,5 +1,5 @@
 import React from "react";
-import "./recommend.css";
+import "./Recommend.css";
 
 class Recommend extends React.Component {
   constructor(props) {
@@ -17,9 +17,11 @@ class Recommend extends React.Component {
   }
 
   makeConcertElements(concert) {
-    const [status, ...concerts] = concert;
+    const concerts = Array.from(concert);
+    concerts.shift(0);
     const concertElements = []
     for (const data of concerts) {
+      const id = data.MT10ID;
       const url = data.POSTER;
       const title = data.PRFNM
       const location = data.FCLTYNM;
@@ -28,7 +30,7 @@ class Recommend extends React.Component {
       const actor = data.PRFCAST;
 
       concertElements.push((
-        <div className="wrap-recommend-item">
+        <div className="wrap-recommend-item" key={id} >
           <img
             className="recommend-item-poster"
             src={url}
@@ -49,6 +51,7 @@ class Recommend extends React.Component {
     }
     return concertElements;
   }
+
   render() {
     const { concert } = this.state;
     if (concert.length === 0) return <div></div>;
@@ -58,7 +61,7 @@ class Recommend extends React.Component {
     return (
       <div className="wrap-recommend">
         <div className="recommend-title">어머! 이건 꼭 봐야해!</div>
-        <div className="recommend-slider">
+        <div className="recommend-slider animate" >
           {concertElements}
         </div>
       </div>
