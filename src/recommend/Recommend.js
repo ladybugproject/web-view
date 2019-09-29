@@ -1,5 +1,6 @@
 import React from "react";
 import "./Recommend.css";
+import {Link} from 'react-router-dom';
 
 class Recommend extends React.Component {
   constructor(props) {
@@ -31,11 +32,14 @@ class Recommend extends React.Component {
 
       concertElements.push((
         <div className="wrap-recommend-item" key={id} >
-          <img
-            className="recommend-item-poster"
-            src={url}
-            alt="sample"
-          />
+          <Link to="/information">
+            <img
+              className="recommend-item-poster"
+              src={url}
+              alt="sample"
+            />
+          </Link>
+
           <div className="recommend-item-info">
             <div className="recommend-item-title">{title}</div>
             <div className="recommend-item-location">
