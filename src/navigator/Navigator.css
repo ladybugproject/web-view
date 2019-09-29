@@ -38,6 +38,7 @@
   border-style: solid;
   border-color: rgb(230, 129, 129);
   border-radius: 0.3rem;
+  text-align: center;
 }
 
 .navigator-home-button:active {
@@ -54,6 +55,7 @@
   border-style: solid;
   border-color: rgb(230, 129, 129);
   border-radius: 0.3rem;
+  text-align: center;
 }
 
 .navigator-detail-search-button:active {
