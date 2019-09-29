@@ -3,6 +3,13 @@ import './SearchBar.css';
 
 class SearchBar extends React.Component {
   render() {
-    return <div></div>;
+    return (
+      <div className='wrap-searchbar'>
+        form data
+      </div>
+    );
   }
 }
+
+
+export default SearchBar;
