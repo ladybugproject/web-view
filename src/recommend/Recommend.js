@@ -1,5 +1,5 @@
 import React from "react";
-import "./Recommend.css";
+import "./recommend.css";
 import {Link} from 'react-router-dom';
 
 class Recommend extends React.Component {
