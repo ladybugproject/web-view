@@ -5,13 +5,16 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 // import SearchBar from "./searchBar/SearchBar";
 // import Information from "./information/Information";
 import "./App.css";
+import Home from './components/Home';
 import GlobalStyles from './GlobalStyles';
 
 class App extends React.Component {
   render() {
     return (
       <>
-        <Router />
+        <Router>
+          <Route exact path="/" component={Home} />
+        </Router>
         <GlobalStyles />
       {/*<Router>*/}
         {/*<Navigator />*/}

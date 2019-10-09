@@ -1,4 +1,4 @@
-import {$} from '../Utility';
+import {$} from '../../Utility';
 
 function detailSearchClickHandler() {
   const searchBar = $('.wrap-searchbar');

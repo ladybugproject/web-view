@@ -1,7 +1,7 @@
 import React from "react";
-import menu_icon from "../img/menu_icon.png";
-import logo_icon from "../img/logo_icon.png";
-import setting_icon from "../img/setting_icon.png";
+import menu_icon from "../../img/menu_icon.png";
+import logo_icon from "../../img/logo_icon.png";
+import setting_icon from "../../img/setting_icon.png";
 import {detailSearchClickHandler} from './Navigator.module.mjs';
 import "./Navigator.css";
 import {Link} from 'react-router-dom';
