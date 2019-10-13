@@ -1,0 +1,55 @@
+.recommendation {
+    margin-top: 15px;
+}
+
+.recommendation .component-title {
+    margin-left: 15px;
+    margin-bottom: 8px;
+}
+
+.recommendation .recommendation-item-wrapper {
+    width: 100%;
+    height: 150px;
+    background-color: #7BC5AE;
+    overflow-y: hidden;
+    overflow-x: auto;
+    display: flex;
+}
+
+.recommendation .recommendation-item-wrapper .recommendation-item {
+    flex: 0 0 auto;
+    padding-right: 15px;
+}
+
+.recommendation .recommendation-item-wrapper .recommendation-item .poster {
+    width: 100px;
+    height: 150px;
+    padding-left: 15px;
+    padding-right: 15px;
+    float: left;
+}
+
+.recommendation .recommendation-item-wrapper .recommendation-item .descriptions {
+    height: 150px;
+}
+
+.recommendation .recommendation-item-wrapper .recommendation-item .descriptions .description {
+    font-size: 12px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    padding-bottom: 7px;
+}
+
+.recommendation .recommendation-item-wrapper .recommendation-item .descriptions .description .content-key {
+    font-weight: bold;
+    margin-right: 6px;
+}
+
+.recommendation .recommendation-item-wrapper .recommendation-item .descriptions .description.prf-name {
+    padding-top: 10px;
+    padding-bottom: 35px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
