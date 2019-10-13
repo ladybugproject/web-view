@@ -9,7 +9,7 @@
 
 .recommendation .recommendation-item-wrapper {
     width: 100%;
-    height: 150px;
+    height: 170px;
     background-color: #7BC5AE;
     overflow-y: hidden;
     overflow-x: auto;
@@ -24,8 +24,7 @@
 .recommendation .recommendation-item-wrapper .recommendation-item .poster {
     width: 100px;
     height: 150px;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding: 10px 15px;
     float: left;
 }
 
@@ -47,9 +46,22 @@
 }
 
 .recommendation .recommendation-item-wrapper .recommendation-item .descriptions .description.prf-name {
-    padding-top: 10px;
+    padding-top: 20px;
     padding-bottom: 35px;
     font-size: 15px;
     font-weight: bold;
 }
 
+.recommendation .dot-nav-wrapper {
+    width: 100%;
+    height: 20px;
+    background-color: #7BC5AE;
+}
+
+.dot-nav {
+    width: auto !important;
+    padding: 1px 0;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+}

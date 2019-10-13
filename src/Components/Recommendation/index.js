@@ -1,4 +1,5 @@
 import React from 'react';
+import Dot from 'react-carousel-dots';
 import './Recommendation.css';
 
 class Recommendation extends React.Component {
@@ -87,6 +88,11 @@ class Recommendation extends React.Component {
           </div>
 
         </div>
+
+        <div className={'dot-nav-wrapper'}>
+          <Dot className={'dot-nav'} active={0} length={this.state.recommendations.length} />
+        </div>
+
       </div>
     );
   }
