@@ -2,6 +2,43 @@ import React from 'react';
 import Dot from 'react-carousel-dots';
 import './Recommendation.css';
 
+class TouchScrollTracker {
+
+  static MIN_SCROLL_THRESHOLD = 20;
+  static SCROLL_TO_LEFT = -1;
+  static SCROLL_TO_RIGHT = 1;
+
+  constructor() {
+    this.fromX = 0;
+  }
+
+  touchStart(e) {
+    this.fromX = e.changedTouches[0].clientX;
+  }
+
+  touchEnd(e) {
+    const toX = e.changedTouches[0].clientX;
+    const delta = toX - this.fromX;
+
+    if (delta === 0) {
+      return;
+    }
+
+    const direction = delta > 0
+      ? TouchScrollTracker.SCROLL_TO_LEFT
+      : TouchScrollTracker.SCROLL_TO_RIGHT;
+    const absDelta = Math.abs(delta);
+
+    if ( absDelta < TouchScrollTracker.MIN_SCROLL_THRESHOLD ) {
+      // restore
+      console.log('restore');
+    } else {
+      // scroll
+      console.log('scroll');
+    }
+  }
+}
+
 class Recommendation extends React.Component {
   constructor(prop) {
     super(prop);
@@ -24,14 +61,18 @@ class Recommendation extends React.Component {
           cast: '하은설, 김주연, 조상웅, 노희찬, 장이주, 조민정, 이세령 등',
         },
       ],
-    }
+    };
+    this.touchScrollTracker = new TouchScrollTracker();
   }
 
   render() {
     return (
       <div className={'recommendation'}>
         <p className={'component-title'}>오머나 이건 꼭 봐야해!</p>
-        <div className={'recommendation-item-wrapper'}>
+        <div className={'recommendation-item-wrapper'}
+             onTouchStart={this.touchScrollTracker.touchStart.bind(this.touchScrollTracker)}
+             onTouchEnd={this.touchScrollTracker.touchEnd.bind(this.touchScrollTracker)}
+        >
 
           <div className={'recommendation-item'}>
             <img className={'poster'} src={this.state.recommendations[0].poster} alt={''}/>
