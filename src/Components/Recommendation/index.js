@@ -6,10 +6,12 @@ class TouchScrollTracker {
 
   static MIN_SCROLL_THRESHOLD = 20;
   static SCROLL_TO_LEFT = -1;
+  static NO_SCROLL = 0;
   static SCROLL_TO_RIGHT = 1;
 
-  constructor() {
+  constructor(target) {
     this.fromX = 0;
+    this.target = target;
   }
 
   touchStart(e) {
@@ -19,24 +21,22 @@ class TouchScrollTracker {
   touchEnd(e) {
     const toX = e.changedTouches[0].clientX;
     const delta = toX - this.fromX;
+    const direction = this.getDirection(delta);
 
-    if (delta === 0) {
-      return;
-    }
+    this.target.scroll.call(this, direction);
+  }
 
-    const direction = delta > 0
-      ? TouchScrollTracker.SCROLL_TO_LEFT
-      : TouchScrollTracker.SCROLL_TO_RIGHT;
+  getDirection = delta => {
     const absDelta = Math.abs(delta);
 
-    if ( absDelta < TouchScrollTracker.MIN_SCROLL_THRESHOLD ) {
-      // restore
-      console.log('restore');
-    } else {
-      // scroll
-      console.log('scroll');
+    if (absDelta < TouchScrollTracker.MIN_SCROLL_THRESHOLD) {
+      return TouchScrollTracker.NO_SCROLL;
     }
-  }
+
+    return delta > 0
+      ? TouchScrollTracker.SCROLL_TO_LEFT
+      : TouchScrollTracker.SCROLL_TO_RIGHT;
+  };
 }
 
 class Recommendation extends React.Component {
@@ -62,14 +62,27 @@ class Recommendation extends React.Component {
         },
       ],
     };
-    this.touchScrollTracker = new TouchScrollTracker();
+    this.itemIndex = 0;
+    this.touchScrollTracker = new TouchScrollTracker(this);
   }
+
+  scroll = (direction) => {
+    const nextItemIndex = this.itemIndex + direction;
+
+    if (nextItemIndex < 0 || nextItemIndex >= this.state.recommendations.length) {
+      return;
+    }
+
+    this.itemIndex = nextItemIndex;
+    console.log(this.element);
+  };
 
   render() {
     return (
       <div className={'recommendation'}>
         <p className={'component-title'}>오머나 이건 꼭 봐야해!</p>
         <div className={'recommendation-item-wrapper'}
+             ref={(element) => {this.element = element;}}
              onTouchStart={this.touchScrollTracker.touchStart.bind(this.touchScrollTracker)}
              onTouchEnd={this.touchScrollTracker.touchEnd.bind(this.touchScrollTracker)}
         >
