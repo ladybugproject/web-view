@@ -1,5 +1,6 @@
 import React from 'react';
 import Dot from 'react-carousel-dots';
+import RecommendationItem from './recommendationItem';
 import './Recommendation.css';
 
 class TouchScrollTracker {
@@ -104,6 +105,11 @@ class Recommendation extends React.Component {
   }
 
   render() {
+    const {
+      recommendations,
+      itemIndex,
+    } = this.state;
+
     return (
       <div className={'recommendation'}>
         <p className={'component-title'}>오머나 이건 꼭 봐야해!</p>
@@ -112,92 +118,16 @@ class Recommendation extends React.Component {
              onTouchStart={this.touchScrollTracker.touchStart.bind(this.touchScrollTracker)}
              onTouchEnd={this.touchScrollTracker.touchEnd.bind(this.touchScrollTracker)}
         >
-
-          <div className={'recommendation-item'}>
-            <img className={'poster'} src={this.state.recommendations[0].poster} alt={''}/>
-            <div className={'descriptions'}>
-              <div className={'description prf-name'}>
-                {this.state.recommendations[0].prf_name}
-              </div>
-              <div className={'description'}>
-                <span className={'content-key'}>장소</span>
-                <span>
-                  {this.state.recommendations[0].plc_name}
-                </span>
-              </div>
-              <div className={'description'}>
-                <span className={'content-key'}>날짜</span>
-                <span>
-                  {this.state.recommendations[0].date_from} ~ {this.state.recommendations[0].date_to}
-                </span>
-              </div>
-              <div className={'description'}>
-                <span className={'content-key'}>출연진</span>
-                <span>
-                  {this.state.recommendations[0].cast}
-                </span>
-              </div>
-            </div>
-          </div>
-
-          <div className={'recommendation-item'}>
-            <img className={'poster'} src={this.state.recommendations[1].poster} alt={''}/>
-            <div className={'descriptions'}>
-              <div className={'description prf-name'}>
-                {this.state.recommendations[1].prf_name}
-              </div>
-              <div className={'description'}>
-                <span className={'content-key'}>장소</span>
-                <span>
-                  {this.state.recommendations[1].plc_name}
-                </span>
-              </div>
-              <div className={'description'}>
-                <span className={'content-key'}>날짜</span>
-                <span>
-                  {this.state.recommendations[1].date_from} ~ {this.state.recommendations[1].date_to}
-                </span>
-              </div>
-              <div className={'description'}>
-                <span className={'content-key'}>출연진</span>
-                <span>
-                  {this.state.recommendations[1].cast}
-                </span>
-              </div>
-            </div>
-          </div>
-
-          <div className={'recommendation-item'}>
-            <img className={'poster'} src={this.state.recommendations[0].poster} alt={''}/>
-            <div className={'descriptions'}>
-              <div className={'description prf-name'}>
-                {this.state.recommendations[2].prf_name}
-              </div>
-              <div className={'description'}>
-                <span className={'content-key'}>장소</span>
-                <span>
-                  {this.state.recommendations[2].plc_name}
-                </span>
-              </div>
-              <div className={'description'}>
-                <span className={'content-key'}>날짜</span>
-                <span>
-                  {this.state.recommendations[2].date_from} ~ {this.state.recommendations[0].date_to}
-                </span>
-              </div>
-              <div className={'description'}>
-                <span className={'content-key'}>출연진</span>
-                <span>
-                  {this.state.recommendations[2].cast}
-                </span>
-              </div>
-            </div>
-          </div>
-
+          {recommendations.map((r, index) => {
+              return (
+                <RecommendationItem recommendation={r} key={index} />
+              );
+            })
+          }
         </div>
 
         <div className={'dot-nav-wrapper'}>
-          <Dot className={'dot-nav'} active={this.state.itemIndex} length={this.state.recommendations.length} />
+          <Dot className={'dot-nav'} active={itemIndex} length={recommendations.length} />
         </div>
 
       </div>
