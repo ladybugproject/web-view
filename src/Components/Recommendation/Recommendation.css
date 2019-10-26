@@ -19,7 +19,7 @@
 
 .recommendation .recommendation-item-wrapper .recommendation-item {
     flex: 0 0 auto;
-    padding-right: 15px;
+    width: 100%;
 }
 
 .recommendation .recommendation-item-wrapper .recommendation-item .poster {
