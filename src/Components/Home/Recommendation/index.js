@@ -2,6 +2,7 @@ import React from 'react';
 import Dot from 'react-carousel-dots';
 import TouchScrollTracker from './touchScrollTracker';
 import RecommendationItem from './recommendationItem';
+import title from './recomendation-title.png';
 import './Recommendation.css';
 
 class Recommendation extends React.Component {
@@ -76,7 +77,7 @@ class Recommendation extends React.Component {
 
     return (
       <div className={'recommendation'}>
-        <p className={'component-title'}>오머나 이건 꼭 봐야해!</p>
+        <img className={'component-title'} src={title} alt={title} />
         <div className={'recommendation-item-wrapper'}
              ref={(element) => {this.element = element;}}
              onTouchStart={this.touchScrollTracker.touchStart.bind(this.touchScrollTracker)}
