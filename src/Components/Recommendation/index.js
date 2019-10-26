@@ -46,6 +46,7 @@ class Recommendation extends React.Component {
   constructor(prop) {
     super(prop);
     this.state = {
+      itemIndex: 0,
       recommendations: [
         {
           prf_name: '판타스틱',
@@ -73,26 +74,34 @@ class Recommendation extends React.Component {
         },
       ],
     };
-    this.itemIndex = 0;
     this.touchScrollTracker = new TouchScrollTracker(this);
   }
 
   scroll = (direction) => {
-    const nextItemIndex = this.itemIndex + direction;
+    const nextItemIndex = this.state.itemIndex + direction;
 
     if (nextItemIndex < 0 || nextItemIndex >= this.state.recommendations.length) {
       return;
     }
 
-    this.itemIndex = nextItemIndex;
+    this.scrollItem(nextItemIndex);
+    this.syncDotNavigation(nextItemIndex);
+  };
 
-    const scrollToX = this.itemIndex * this.element.clientWidth;
+  scrollItem(nextItemIndex) {
+    const scrollToX = nextItemIndex * this.element.clientWidth;
 
     this.element.scrollTo({
       left: scrollToX,
       behavior: 'smooth',
     });
-  };
+  }
+
+  syncDotNavigation(nextItemIndex) {
+    this.setState({
+      itemIndex: nextItemIndex,
+    });
+  }
 
   render() {
     return (
@@ -188,7 +197,7 @@ class Recommendation extends React.Component {
         </div>
 
         <div className={'dot-nav-wrapper'}>
-          <Dot className={'dot-nav'} active={0} length={this.state.recommendations.length} />
+          <Dot className={'dot-nav'} active={this.state.itemIndex} length={this.state.recommendations.length} />
         </div>
 
       </div>
