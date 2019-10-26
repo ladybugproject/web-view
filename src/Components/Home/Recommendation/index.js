@@ -9,9 +9,14 @@ class TouchScrollTracker {
   static NO_SCROLL = 0;
   static SCROLL_TO_RIGHT = 1;
 
-  constructor(target) {
+  constructor(options) {
+    const defaultOptions = {
+      component: this,
+      onScroll: () => {},
+    };
+
+    this.options = Object.assign(defaultOptions, options);
     this.fromX = 0;
-    this.target = target;
   }
 
   touchStart(e) {
@@ -27,7 +32,12 @@ class TouchScrollTracker {
       return;
     }
 
-    this.target.scroll.call(this, direction);
+    const {
+      component,
+      onScroll,
+    } = this.options;
+
+    onScroll.call(component, direction);
   }
 
   getDirection = delta => {
@@ -75,7 +85,10 @@ class Recommendation extends React.Component {
         },
       ],
     };
-    this.touchScrollTracker = new TouchScrollTracker(this);
+    this.touchScrollTracker = new TouchScrollTracker({
+      component: this,
+      onScroll: this.scroll,
+    });
   }
 
   scroll = (direction) => {
