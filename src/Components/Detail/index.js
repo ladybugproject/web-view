@@ -1,5 +1,6 @@
 import React from 'react';
 import Navigator from '../Navigator';
+import Overview from './Overview';
 
 class Detail extends React.Component {
   constructor(props) {
@@ -20,9 +21,12 @@ class Detail extends React.Component {
   }
 
   render() {
+    const { recommendation } = this.state;
+
     return (
       <>
         <Navigator />
+        <Overview recommendation={recommendation} />
       </>
     );
   }

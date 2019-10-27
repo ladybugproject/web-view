@@ -1,0 +1,46 @@
+.overview {
+    width: 100%;
+    height: 170px;
+    border-bottom: 1px solid black;
+    overflow-y: hidden;
+    overflow-x: auto;
+}
+
+.overview .poster-wrapper {
+    width: 120px;
+    height: 150px;
+    padding: 10px 15px;
+    float: left;
+}
+
+.overview .poster-wrapper .poster {
+    width: 100%;
+    height: 100%;
+}
+
+.overview .text-wrapper {
+    font-size: 12px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    padding-bottom: 7px;
+}
+
+.overview .text-wrapper .prf-name {
+    padding: 15px 0 25px 0;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.overview .text-wrapper .description {
+    font-size: 14px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    padding-bottom: 7px;
+}
+
+.overview .text-wrapper .description .content-key {
+    font-weight: bold;
+    margin-right: 6px;
+}
