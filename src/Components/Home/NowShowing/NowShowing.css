@@ -1,7 +1,7 @@
 .now-showing {
     width: 100%;
     height: 230px;
-    margin: 8px 0 0 8px;
+    margin: 8px 0;
 }
 
 .now-showing .component-title {
