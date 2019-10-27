@@ -12,7 +12,7 @@ class App extends React.Component {
       <>
         <Router>
           <Route exact path="/" component={Home} />
-          <Route path="/detail" component={DetailSearch} />
+          <Route path="/detailSearch" component={DetailSearch} />
           <Route path="/detail/:prf_id" component={Detail} />
         </Router>
         <GlobalStyles />

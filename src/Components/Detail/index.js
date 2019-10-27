@@ -16,7 +16,7 @@ class Detail extends React.Component {
   }
 
   async componentDidMount() {
-    const result = await APIClient.prfinfo(this.props.match.params);
+    const result = await APIClient.prfinfo.detail(this.props.match.params);
 
     this.setState({
       result,

@@ -30,8 +30,8 @@ class NowShowing extends React.Component {
         <div className={'showing-poster-wrapper'}>
           {playing.map((p, index) => {
             return (
-              <Link to={`/detail/${p.prf_id}`}>
-                <img className={'showing-poster'} key={index} src={p.poster} alt={p.poster} />
+              <Link to={`/detail/${p.prf_id}`} key={index}>
+                <img className={'showing-poster'} src={p.poster} alt={p.poster} />
               </Link>
             );
           })}
