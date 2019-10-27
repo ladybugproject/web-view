@@ -1,0 +1,38 @@
+.cast {
+    width: 100%;
+    height: 170px;
+    border-bottom: 1px solid black;
+}
+
+.cast .component-title {
+    margin: 10px 15px;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.cast .cast-item-wrapper {
+    width: 100%;
+    height: 100%;
+    flex: 0 0 auto;
+    overflow-y: hidden;
+    overflow-x: auto;
+    display: flex;
+}
+
+.cast .cast-item-wrapper .cast-item {
+    width: 100px;
+    height: 120px;
+    margin: 5px;
+}
+
+.cast .cast-item-wrapper .cast-item .profile {
+    width: 90px;
+    height: 100px;
+    margin-bottom: 8px;
+}
+
+.cast .cast-item-wrapper .cast-item .name {
+    width: 90px;
+    position: relative;
+    text-align: center;
+}
