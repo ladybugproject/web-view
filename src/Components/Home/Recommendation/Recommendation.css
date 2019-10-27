@@ -1,10 +1,6 @@
-.recommendation {
-    margin-top: 15px;
-}
-
 .recommendation .component-title {
-    margin-left: 15px;
-    margin-bottom: 8px;
+    width: 40%;
+    padding-left: 5px;
 }
 
 .recommendation .recommendation-item-wrapper {
@@ -25,7 +21,7 @@
 .recommendation .recommendation-item-wrapper .recommendation-item .poster {
     width: 100px;
     height: 150px;
-    padding: 10px 15px;
+    margin: 10px 15px;
     float: left;
 }
 

@@ -1,0 +1,24 @@
+.now-showing {
+    width: 100%;
+    height: 230px;
+    margin: 8px 0;
+}
+
+.now-showing .component-title {
+    width: 40%;
+}
+
+.now-showing .showing-poster-wrapper {
+    width: 100%;
+    height: 100%;
+    overflow-y: hidden;
+    overflow-x: auto;
+    display: flex;
+}
+
+.now-showing .showing-poster-wrapper .showing-poster {
+    width: 140px;
+    height: 210px;
+    margin-right: 10px;
+    float: left;
+}

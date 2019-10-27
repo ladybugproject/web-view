@@ -1,6 +1,7 @@
 import React from "react";
 import Navigator from "../Navigator";
-import Recommendation from '../Recommendation';
+import Recommendation from './Recommendation';
+import NowShowing from './NowShowing';
 
 class Home extends React.Component {
   render() {
@@ -8,6 +9,7 @@ class Home extends React.Component {
       <>
         <Navigator />
         <Recommendation />
+        <NowShowing />
       </>
     );
   }

@@ -11,7 +11,9 @@ class Navigator extends React.Component {
 			<div className={'navigator'}>
 				<div className={'menu-icon'}>
 					<img className={'navigator-menu-icon left'} src={Setup} alt={Setup} />
-					<img className={'center'} src={Logo} alt={Logo} />
+          <Link to='/'>
+            <img className={'center'} src={Logo}  alt={Logo} />
+          </Link>
 					<img className={'navigator-menu-icon right'} src={Settings} alt={Setup} />
 				</div>
 				<div className={'navigator-menu-btn'}>
