@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 const WrapInput = styled.div`
 	width: 70%;
@@ -12,14 +12,14 @@ const Input = styled.input`
 	height: 30px;
 `;
 
-const TextInput = ({ setKeyword }) => {
+const TextInput = ({ setKeyword, holder }) => {
 	const onChangeInput = e => {
 		setKeyword(e.target.value);
 	};
 
-	const searchBtn = document.getElementById('search-btn');
+	const searchBtn = document.getElementById("search-btn");
 	const onPressKeyboard = e => {
-		if (e.key === 'Enter') {
+		if (e.key === "Enter") {
 			searchBtn.click();
 		}
 	};
@@ -28,7 +28,7 @@ const TextInput = ({ setKeyword }) => {
 		<>
 			<WrapInput>
 				<Input
-					placeholder={'공연 제목, 공연 장소, 배우'}
+					placeholder={holder}
 					onChange={onChangeInput}
 					onKeyPress={onPressKeyboard}
 					autoFocus

@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import { Flexbox, FlexDirectionColumn } from "../../BaseComponents";
 
 /* 컨테이너 속성 */
@@ -43,8 +44,8 @@ const WrapFilteredItem = styled(Flexbox)`
 `;
 
 const ItemImg = styled.img`
-	width: 40%;
-	height: 90%;
+	width: 150px;
+	height: 200px%;
 	margin-left: 5px;
 `;
 
@@ -73,10 +74,17 @@ const B = styled.b`
 	font-weight: 400;
 `;
 
+const A = styled.a`
+	width: 100%;
+	height: 100%;
+`;
+
 const Item = ({ info }) => {
 	return (
 		<WrapFilteredItem>
-			<ItemImg src={info.poster} alt={"poster"} />
+			<Link to={`/detail/${info.prf_id}`}>
+				<ItemImg src={info.poster} alt={"poster"}></ItemImg>
+			</Link>
 			<FlexDirectionColumn>
 				<WrapTitle>{info.prf_name}</WrapTitle>
 				<WrapContent>
