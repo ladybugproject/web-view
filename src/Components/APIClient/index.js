@@ -18,7 +18,8 @@ const APIClient = {
   playing: {
     recommendation: API_CALL_TEMPLATE('/playing/recommendation'),
     now: API_CALL_TEMPLATE('/playing/now'),
-  }
+  },
+  prfinfo: ({ prf_id }) => API_CALL_TEMPLATE(`/prfinfo/${prf_id}`)(),
 };
 
 export default APIClient;
