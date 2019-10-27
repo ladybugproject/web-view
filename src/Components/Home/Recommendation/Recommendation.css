@@ -21,7 +21,7 @@
 .recommendation .recommendation-item-wrapper .recommendation-item .poster {
     width: 100px;
     height: 150px;
-    padding: 10px 15px;
+    margin: 10px 15px;
     float: left;
 }
 

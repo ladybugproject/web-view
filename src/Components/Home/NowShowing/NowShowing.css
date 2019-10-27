@@ -19,6 +19,6 @@
 .now-showing .showing-poster-wrapper .showing-poster {
     width: 140px;
     height: 210px;
-    padding-right: 10px;
+    margin-right: 10px;
     float: left;
 }
