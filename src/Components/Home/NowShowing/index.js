@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import title from './title.png';
 import './NowShowing.css';
 import APIClient from '../../APIClient';
@@ -28,7 +29,11 @@ class NowShowing extends React.Component {
         <img className={'component-title'} src={title} alt={title} />
         <div className={'showing-poster-wrapper'}>
           {playing.map((p, index) => {
-            return <img className={'showing-poster'} key={index} src={p.poster} alt={p.poster} />;
+            return (
+              <Link to={`/detail/${p.prf_id}`}>
+                <img className={'showing-poster'} key={index} src={p.poster} alt={p.poster} />
+              </Link>
+            );
           })}
         </div>
       </div>

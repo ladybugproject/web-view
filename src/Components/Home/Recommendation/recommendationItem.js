@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Recommendation.css';
 
 class RecommendationItem extends React.Component {
@@ -11,6 +12,7 @@ class RecommendationItem extends React.Component {
     const { recommendation } = this.props;
     const {
       poster,
+      prf_id,
       prf_name,
       plc_name,
       date_from,
@@ -20,7 +22,9 @@ class RecommendationItem extends React.Component {
 
     return (
       <div className={'recommendation-item'}>
-        <img className={'poster'} src={poster} alt={''}/>
+        <Link to={`/detail/{prf_id}`}>
+          <img className={'poster'} src={poster} alt={''}/>
+        </Link>
         <div className={'descriptions'}>
           <div className={'description prf-name'}>
             {prf_name}
