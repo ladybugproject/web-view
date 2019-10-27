@@ -1,6 +1,6 @@
-import React from 'react';
-import styled from 'styled-components';
-import { Flexbox, FlexDirectionColumn } from '../../BaseComponents';
+import React from "react";
+import styled from "styled-components";
+import { Flexbox, FlexDirectionColumn } from "../../BaseComponents";
 
 /* 컨테이너 속성 */
 
@@ -9,7 +9,7 @@ const WrapFiltered = styled(FlexDirectionColumn)`
 `;
 
 const WrapFilteredTitle = styled(Flexbox)`
-	display: ${props => (props.show ? 'flex' : 'none')};
+	display: ${props => (props.show ? "flex" : "none")};
 	justify-content: space-between;
 `;
 
@@ -29,7 +29,7 @@ const FilteredCount = styled.div`
 `;
 
 const Line = styled.div`
-	display: ${props => (props.show ? 'flex' : 'none')};
+	display: ${props => (props.show ? "flex" : "none")};
 	width: 100%;
 	height: 1px;
 	border-bottom: 1px solid black;
@@ -50,7 +50,7 @@ const ItemImg = styled.img`
 
 const WrapTitle = styled.div`
 	width: 90%;
-	height: 20%;
+	height: 40%;
 	font-size: 18px;
 	font-weight: 600;
 	margin-left: 20px;
@@ -76,7 +76,7 @@ const B = styled.b`
 const Item = ({ info }) => {
 	return (
 		<WrapFilteredItem>
-			<ItemImg src={info.poster} alt={'poster'} />
+			<ItemImg src={info.poster} alt={"poster"} />
 			<FlexDirectionColumn>
 				<WrapTitle>{info.prf_name}</WrapTitle>
 				<WrapContent>
@@ -91,12 +91,12 @@ const Item = ({ info }) => {
 					<Content>
 						<B>날짜 </B>
 						{info.date_from}
-						{' ~ '}
+						{" ~ "}
 						{info.date_to}
 					</Content>
 					<Content>
 						<B>출연진 </B>
-						{info.cast.split(',').slice(0, 3)}
+						{info.cast.split(",").slice(0, 3)}
 					</Content>
 				</WrapContent>
 			</FlexDirectionColumn>
@@ -106,9 +106,9 @@ const Item = ({ info }) => {
 
 const Concerts = ({ concerts }) => {
 	return (
-		<FlexDirectionColumn className={'filtered-concerts'}>
+		<FlexDirectionColumn className={"filtered-concerts"}>
 			<WrapFilteredTitle show={concerts.length !== 0}>
-				<FilteredTitle>{'오머나! 내가 찾던 거야!'}</FilteredTitle>
+				<FilteredTitle>{"오머나! 내가 찾던 거야!"}</FilteredTitle>
 				<FilteredCount>{`${concerts.length}가지의 검색결과`}</FilteredCount>
 			</WrapFilteredTitle>
 			<Line show={concerts.length !== 0} />
