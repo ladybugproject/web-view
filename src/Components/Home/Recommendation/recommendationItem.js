@@ -22,7 +22,7 @@ class RecommendationItem extends React.Component {
 
     return (
       <div className={'recommendation-item'}>
-        <Link to={`/detail/{prf_id}`}>
+        <Link to={`/detail/${prf_id}`}>
           <img className={'poster'} src={poster} alt={''}/>
         </Link>
         <div className={'descriptions'}>

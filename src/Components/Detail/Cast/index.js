@@ -27,7 +27,7 @@ class Cast extends React.Component {
   }
 
   render() {
-    const { cast_profile } = this.props.result;
+    const { cast_profile = [] } = this.props.result;
 
     return (
       <div className={'cast'}>
