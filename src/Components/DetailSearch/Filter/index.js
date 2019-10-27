@@ -10,7 +10,7 @@ const LOCATION = ['서울', '대전', '인천', '대구', '부산'];
 const GENRE = ['공연', '콘서트', '로맨스'];
 const DATE = ['무언가오브젝트'];
 
-const Filter = () => {
+const Filter = ({ setConcerts }) => {
 	const initialFilter = {
 		location: '',
 		genre: '',
@@ -44,7 +44,7 @@ const Filter = () => {
 		<div className={'filter'}>
 			<FilterContext.Provider value={{ filter, dispatchFilter }}>
 				<FlexDirectionColumn>
-					<SearchBar />
+					<SearchBar setConcerts={setConcerts} />
 				</FlexDirectionColumn>
 			</FilterContext.Provider>
 		</div>
