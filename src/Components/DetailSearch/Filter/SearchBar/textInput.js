@@ -17,9 +17,9 @@ const TextInput = ({ setKeyword, holder }) => {
 		setKeyword(e.target.value);
 	};
 
-	const searchBtn = document.getElementById("search-btn");
 	const onPressKeyboard = e => {
 		if (e.key === "Enter") {
+			const searchBtn = document.getElementById("search-btn");
 			searchBtn.click();
 		}
 	};

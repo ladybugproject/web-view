@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import TextInput from './textInput';
-import { Flexbox } from '../../../BaseComponents';
-import styled from 'styled-components';
-import APIClient from '../../../APIClient';
+import React, { useState } from "react";
+import TextInput from "./textInput";
+import { Flexbox } from "../../../BaseComponents";
+import styled from "styled-components";
+import APIClient from "../../../APIClient";
 
 const SearchBtn = styled.div`
 	width: 60px;
@@ -16,17 +16,13 @@ const SearchBtn = styled.div`
 `;
 
 const SearchBar = ({ setConcerts }) => {
-	const [keyword, setKeyword] = useState(undefined);
+	const [keyword, setKeyword] = useState("");
 
-	const onClickBtn = async (e) => {
-		if (!keyword) {
-			return e;
-		}
-
+	const onClickBtn = async e => {
 		const concerts = await APIClient.prfinfo.search({
-		  keyword,
-		  startFrom: 0,
-		  endTo: 20,
+			keyword,
+			startFrom: 0,
+			endTo: 20
 		});
 
 		setConcerts(concerts);
@@ -35,7 +31,7 @@ const SearchBar = ({ setConcerts }) => {
 	return (
 		<Flexbox>
 			<TextInput setKeyword={setKeyword} />
-			<SearchBtn id={'search-btn'} onClick={onClickBtn}>
+			<SearchBtn id={"search-btn"} onClick={onClickBtn}>
 				검색
 			</SearchBtn>
 		</Flexbox>
