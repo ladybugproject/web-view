@@ -4,11 +4,10 @@ import './style.css';
 class Overview extends React.Component {
   constructor(props) {
     super(props);
-    console.log(this);
   }
 
   render() {
-    const { recommendation } = this.props;
+    const { result } = this.props;
     const {
       prf_name,
       genre,
@@ -17,7 +16,7 @@ class Overview extends React.Component {
       plc_name,
       cast,
       poster,
-    } = recommendation;
+    } = result;
 
     return (
       <div className={'overview'}>

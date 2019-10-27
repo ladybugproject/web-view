@@ -8,7 +8,7 @@ class Detail extends React.Component {
     this.params = props.match.params;
 
     this.state = {
-      recommendation: {
+      result: {
         prf_name: '판타스틱',
         poster: 'http://www.kopis.or.kr/upload/pfmPoster/PF_PF121653_180607_112000.jpg',
         plc_name: 'NH아트홀 판타스틱 전용관 (NH아트홀 판타스틱 전용관)',
@@ -21,12 +21,12 @@ class Detail extends React.Component {
   }
 
   render() {
-    const { recommendation } = this.state;
+    const { result } = this.state;
 
     return (
       <>
         <Navigator />
-        <Overview recommendation={recommendation} />
+        <Overview result={result} />
       </>
     );
   }
