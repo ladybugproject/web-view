@@ -10,8 +10,6 @@ class Recommendation extends React.Component {
   constructor(prop) {
     super(prop);
 
-
-
     this.state = {
       itemIndex: 0,
       recommendations: [],

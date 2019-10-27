@@ -1,27 +1,24 @@
 const API_SERVER = 'http://15.164.225.87:3000';
 
-const recommendation = () =>
-  fetch(`${API_SERVER}/playing/recommendation`, {
+const API_CALL_TEMPLATE = (apiPath, options = {}) => () => {
+  const defaultOptions = {
     'Content-Type': 'application/json',
-  })
+    'Method': 'GET',
+  };
+
+  const opt = Object.assign(defaultOptions, options);
+
+  return fetch(`${API_SERVER}${apiPath}`, opt)
     .then(resp => resp.json())
     .then(resp => resp[1].result)
-    .catch(console.error)
-;
+    ;
+};
 
 const APIClient = {
   playing: {
-    recommendation,
+    recommendation: API_CALL_TEMPLATE('/playing/recommendation'),
+    now: API_CALL_TEMPLATE('/playing/now'),
   }
 };
 
 export default APIClient;
-// const recommendations = await fetch(`${API_SERVER}/playing/recommendation`, {
-//   headers: {
-//     'Content-Type': 'application/json',
-//   },
-// }).then(resp => resp.json())
-//   .then(resp => resp[1].result)
-//   .catch((e) => {
-//     console.error(e.message);
-//   });
