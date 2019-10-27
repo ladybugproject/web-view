@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import "./App.css";
 import Home from './Components/Home';
+import Detail from './Components/Detail';
 import GlobalStyles from './GlobalStyles';
 
 class App extends React.Component {
@@ -10,6 +11,7 @@ class App extends React.Component {
       <>
         <Router>
           <Route exact path="/" component={Home} />
+          <Route path="/detail/:prf_id" component={Detail} />
         </Router>
         <GlobalStyles />
       {/*<Router>*/}
