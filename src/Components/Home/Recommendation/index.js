@@ -4,43 +4,31 @@ import TouchScrollTracker from './touchScrollTracker';
 import RecommendationItem from './recommendationItem';
 import title from './recomendation-title.png';
 import './Recommendation.css';
+import APIClient from '../../APIClient';
 
 class Recommendation extends React.Component {
   constructor(prop) {
     super(prop);
+
+
+
     this.state = {
       itemIndex: 0,
-      recommendations: [
-        {
-          prf_name: '판타스틱',
-          poster: 'http://www.kopis.or.kr/upload/pfmPoster/PF_PF121653_180607_112000.jpg',
-          plc_name: 'NH아트홀 판타스틱 전용관 (NH아트홀 판타스틱 전용관)',
-          date_from: '2009-04-25',
-          date_to: '2019-09-30',
-          cast: '백승우, 양대용, 문진태, 김태연, 손힘찬, 박현수, 어하연 등',
-        },
-        {
-          prf_name: '빨래',
-          poster: 'http://www.kopis.or.kr/upload/pfmPoster/PF_PF121661_170517_143018.gif',
-          plc_name: '동양예술극장(구. 아트센터K) (1관(네모극장))',
-          date_from: '2014-09-26',
-          date_to: '2019-01-06',
-          cast: '하은설, 김주연, 조상웅, 노희찬, 장이주, 조민정, 이세령 등',
-        },
-        {
-          prf_name: '판타스틱',
-          poster: 'http://www.kopis.or.kr/upload/pfmPoster/PF_PF121653_180607_112000.jpg',
-          plc_name: 'NH아트홀 판타스틱 전용관 (NH아트홀 판타스틱 전용관)',
-          date_from: '2009-04-25',
-          date_to: '2019-09-30',
-          cast: '백승우, 양대용, 문진태, 김태연, 손힘찬, 박현수, 어하연 등',
-        },
-      ],
+      recommendations: [],
     };
+
     this.touchScrollTracker = new TouchScrollTracker({
       component: this,
       onScroll: this.scroll,
     });
+  }
+
+  async componentDidMount() {
+    const recommendations = await APIClient.playing.recommendation();
+
+    this.setState({
+      recommendations
+    })
   }
 
   scroll = (direction) => {
