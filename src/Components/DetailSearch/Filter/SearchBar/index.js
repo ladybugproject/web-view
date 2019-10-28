@@ -30,7 +30,7 @@ const SearchBar = ({ setConcerts }) => {
 
 	return (
 		<Flexbox>
-			<TextInput setKeyword={setKeyword} />
+			<TextInput setKeyword={setKeyword} holder={"공연 제목, 공연 장소, 배우"} />
 			<SearchBtn id={"search-btn"} onClick={onClickBtn}>
 				검색
 			</SearchBtn>
