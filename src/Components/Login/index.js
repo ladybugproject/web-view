@@ -14,7 +14,7 @@ const WrapLogin = styled(FlexDirectionColumn)`
 
 const WrapInput = styled(Flexbox)`
 	background-color: white;
-	width: 70%;
+	width: 288px;
 	height: 50px;
 	margin: 10px;
 `;
@@ -38,6 +38,7 @@ const Input = styled.input`
 	outline: none;
 	margin-left: 10px;
 	font-size: 16px;
+	border: none;
 `;
 
 const LoginBtn = styled.div`
@@ -51,7 +52,7 @@ const LoginBtn = styled.div`
 	line-height: 50px;
 	box-shadow: 1px 1px 25 grey;
 	border-radius: 0.3rem;
-
+	color: white;
 	:active {
 		background-color: rgb(19, 214, 74);
 	}
@@ -70,9 +71,9 @@ const Login = () => {
 				<Input type={"password"} />
 			</WrapInput>
 			<Link to={"/home"}>
-				<LoginBtn>Log in</LoginBtn>
+				<LoginBtn>로그인</LoginBtn>
 			</Link>
-			<LoginBtn>Sign in</LoginBtn>
+			<LoginBtn>회원 가입</LoginBtn>
 
 			<BlankDiv />
 		</WrapLogin>
