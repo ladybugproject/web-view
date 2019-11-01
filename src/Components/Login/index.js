@@ -1,83 +1,88 @@
 import React from "react";
 import styled from "styled-components";
-import { Flexbox, FlexDirectionColumn } from "../BaseComponents";
+import {
+  FlexDirectionColumn,
+  Input,
+  InputImg,
+  WrapInput,
+  Btn
+} from "../BaseComponents";
 import mail from "./mail.png";
 import password from "./password.png";
 import mainLogo from "./ladybug_Main_Logo.png";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { fetchUsingMethod } from "../../Utility";
+import Address from "../../Address";
 
 const WrapLogin = styled(FlexDirectionColumn)`
-	width: 100%;
-	min-height: 100%;
-	position: absolute;
-`;
-
-const WrapInput = styled(Flexbox)`
-	background-color: white;
-	width: 288px;
-	height: 50px;
-	margin: 10px;
+  width: 100%;
+  min-height: 100%;
+  position: absolute;
 `;
 
 const BlankDiv = styled.div`
-	width: 70%;
-	height: 50px;
-	margin: 10px;
-	bacground-color: transparent;
-`;
-
-const Img = styled.img`
-	width: 10%;
-	height: 35px;
-	margin-left: 3px;
-`;
-
-const Input = styled.input`
-	width: 100%;
-	height: 40px;
-	outline: none;
-	margin-left: 10px;
-	font-size: 16px;
-	border: none;
-`;
-
-const LoginBtn = styled.div`
-	background-color: rgb(62, 221, 44);
-	width: 288px;
-	height: 50px;
-	margin-bottom: 10px;
-	font-size: 20px;
-	font-weight: 350;
-	text-align: center;
-	line-height: 50px;
-	box-shadow: 1px 1px 25 grey;
-	border-radius: 0.3rem;
-	color: white;
-	:active {
-		background-color: rgb(19, 214, 74);
-	}
+  width: 70%;
+  height: 50px;
+  margin: 10px;
+  bacground-color: transparent;
 `;
 
 const Login = () => {
-	return (
-		<WrapLogin>
-			<img src={mainLogo} alt={"main-logo"} width={"50%"} height={"35%"} />
-			<WrapInput>
-				<Img src={mail} alt={"mail"} />
-				<Input />
-			</WrapInput>
-			<WrapInput>
-				<Img src={password} alt={"password"} />
-				<Input type={"password"} />
-			</WrapInput>
-			<Link to={"/home"}>
-				<LoginBtn>로그인</LoginBtn>
-			</Link>
-			<LoginBtn>회원 가입</LoginBtn>
+  const clickLoginBtn = async e => {
+    const id = document.getElementById("email").value;
+    const pw = document.getElementById("pw").value;
 
-			<BlankDiv />
-		</WrapLogin>
-	);
+    if (id === "") {
+      return e;
+    }
+
+    if (pw === "") {
+      return e;
+    }
+
+    const res = await fetchUsingMethod(Address + "/login", {
+      methodType: "POST",
+      data: { id, pw }
+    });
+
+    if (res.status === 200) {
+      window.history.pushState("", "", "/home");
+      window.location.reload();
+    }
+  };
+
+  const pressEnter = async e => {
+    const loginBtn = document.getElementById("login-btn");
+    if (e.key === "Enter") {
+      loginBtn.click();
+    }
+  };
+  return (
+    <WrapLogin>
+      <img src={mainLogo} alt={"main-logo"} width={"50%"} height={"35%"} />
+      <WrapInput>
+        <InputImg src={mail} alt={"mail"} />
+        <Input id={"email"} />
+      </WrapInput>
+      <WrapInput>
+        <InputImg src={password} alt={"password"} />
+        <Input id={"pw"} type={"password"} onKeyPress={pressEnter} />
+      </WrapInput>
+
+      <Link to={"home"}>
+        <Btn id={"login-btn"}>
+          {" "}
+          {/*onClick={clickLoginBtn}>*/}
+          로그인
+        </Btn>
+      </Link>
+
+      <Link to={"/signin"}>
+        <Btn>회원 가입</Btn>
+      </Link>
+      <BlankDiv />
+    </WrapLogin>
+  );
 };
 
 export default Login;
