@@ -6,27 +6,29 @@ import DetailSearch from "./Components/DetailSearch";
 import Detail from "./Components/Detail";
 import GlobalStyles from "./GlobalStyles";
 import Login from "./Components/Login";
+import Signin from "./Components/Signin";
 
 class App extends React.Component {
-	render() {
-		return (
-			<>
-				<Router>
-					<Route exact path="/" component={Login} />
-					<Route path="/home" component={Home} />
-					<Route path="/detailSearch" component={DetailSearch} />
-					<Route path="/detail/:prf_id" component={Detail} />
-				</Router>
-				<GlobalStyles />
-				{/*<Router>*/}
-				{/*<Navigator />*/}
-				{/*<Route exact path="/" Component={App}>*/}
-				{/*<SearchBar />*/}
-				{/*<Recommend />*/}
-				{/*</Route>*/}
-			</>
-		);
-	}
+  render() {
+    return (
+      <>
+        <Router>
+          <Route exact path="/" component={Login} />
+          <Route path="/signin" component={Signin} />
+          <Route path="/home" component={Home} />
+          <Route path="/detailSearch" component={DetailSearch} />
+          <Route path="/detail/:prf_id" component={Detail} />
+        </Router>
+        <GlobalStyles />
+        {/*<Router>*/}
+        {/*<Navigator />*/}
+        {/*<Route exact path="/" Component={App}>*/}
+        {/*<SearchBar />*/}
+        {/*<Recommend />*/}
+        {/*</Route>*/}
+      </>
+    );
+  }
 }
 
 export default App;
