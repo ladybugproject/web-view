@@ -69,13 +69,11 @@ const Login = () => {
         <Input id={"pw"} type={"password"} onKeyPress={pressEnter} />
       </WrapInput>
 
-      <Link to={"home"}>
-        <Btn id={"login-btn"}>
-          {" "}
-          {/*onClick={clickLoginBtn}>*/}
-          로그인
-        </Btn>
-      </Link>
+      <Btn id={"login-btn"} onClick={clickLoginBtn}>
+        {" "}
+        {/*onClick={clickLoginBtn}>*/}
+        로그인
+      </Btn>
 
       <Link to={"/signin"}>
         <Btn>회원 가입</Btn>
